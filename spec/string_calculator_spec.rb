@@ -11,6 +11,14 @@ RSpec.describe StringCalculator do
 	      expect(str_cal_obj.add("")).to eq(0)
 	    end
 
+	    it 'if input str contains positive numbers' do
+	    	expect(str_cal_obj.add("1,5")).to eq(6)
+	    end
+
+	    it 'if input str contains only a positive number' do
+	    	expect(str_cal_obj.add("1")).to eq(1)
+	    end
+
 	    it 'if input str contains \n with numbers' do
 	    	expect(str_cal_obj.add("1\n2,3")).to eq(6)
 	    end
