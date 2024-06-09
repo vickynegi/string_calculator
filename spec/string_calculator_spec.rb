@@ -36,6 +36,10 @@ RSpec.describe StringCalculator do
 	    it 'if input str contains delimeter with negative numbers' do
         expect{ str_cal_obj.add("//;\n1;-2;-4") }.to raise_error("negative numbers not allowed -2,-4")
       end
+
+      it 'if input str contains all negative numbers' do
+        expect{ str_cal_obj.add("-2,-4,-3") }.to raise_error("negative numbers not allowed -2,-4,-3")
+      end
 	  end
 	end
 end
