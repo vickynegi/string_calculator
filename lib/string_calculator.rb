@@ -15,7 +15,7 @@ class StringCalculator
 		unless arr.select(&:negative?).empty?
 			raise "negative numbers not allowed #{arr.select(&:negative?) * ','}"
 		else
-			return arr.sum
+			arr.sum
 		end
 	end
 end

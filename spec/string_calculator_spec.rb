@@ -14,12 +14,20 @@ RSpec.describe StringCalculator do
 	    it 'if input str contains \n with numbers' do
 	    	expect(str_cal_obj.add("1\n2,3")).to eq(6)
 	    end
+
+      it 'if input str contains delimeter' do
+        expect(str_cal_obj.add("//;\n1;2")).to eq(3)
+      end
 	  end
 
     context "failed cases" do
 	    it 'if input str contains \n with negative numbers' do
-	    	expect{str_cal_obj.add("1\n2,-3")}.to raise_error("negative numbers not allowed -3")
+	    	expect{ str_cal_obj.add("1\n2,-3") }.to raise_error("negative numbers not allowed -3")
 	    end
+
+	    it 'if input str contains delimeter with negative numbers' do
+        expect{ str_cal_obj.add("//;\n1;-2;-4") }.to raise_error("negative numbers not allowed -2,-4")
+      end
 	  end
 	end
 end
